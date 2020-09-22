@@ -24,7 +24,7 @@ class evaluate:
         regressor_result_list = []
 
         Xgrf = XGBRegressor(objective ='reg:squarederror')
-        y = pd.DataFrame(data, columns=['steering_top_acc_x'])
+        y = pd.DataFrame(data, columns=['driver_floor_FL_acc_x'])
         y = np.squeeze(y,axis=1)
 
         # print('pop_list',pop_list)
@@ -40,10 +40,10 @@ class evaluate:
         regressor_result_list.sort()
         # print('regressor_result_original', np.array(regressor_result_original).shape)
         # print(regressor_result_list)
-        # print(regressor_result_list[-5:])
+        print('top5:',regressor_result_list[-20:])
 
         parent_index = []
-        for i in regressor_result_list[-5:]:
+        for i in regressor_result_list[-20:]:
             # print(i)
             x = regressor_result_original.index(i)
             parent_index.append(x)

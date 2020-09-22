@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 class Cross_over:
     def __init__(self):
@@ -28,7 +29,7 @@ class Cross_over:
         # print('new_child',np.array(new_child).shape)
         for i in range(gen_len-1):
             for j in range(i+1, gen_len):
-                pt = 6
+                pt = random.randrange(4,16)
                 parent1 = list(next_generation_list[i])
                 parent2 = list(next_generation_list[j])
                 # print('parent1', parent1)

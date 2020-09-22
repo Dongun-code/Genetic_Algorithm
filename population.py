@@ -27,7 +27,7 @@ class population:
             return True_feature
 
     def generate_choromosome(self):
-        chromosome = self.make_chromosome(10,30,0.5)
+        chromosome = self.make_chromosome(100,30,0.7)
         # print(type(chromosome))
         return chromosome
 
@@ -46,7 +46,7 @@ class population:
 
     def parent_index_catcher(self,parent_data, parent_index):
         parent_data = np.array(parent_data)
-        print('parent data ', parent_data.shape, 'parent index', parent_index)
+        # print('parent data ', parent_data.shape, 'parent index', parent_index)
         next_generation = parent_data[parent_index]
         # print(next_generation)
         return next_generation

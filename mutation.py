@@ -7,7 +7,7 @@ class mutation:
         child_list_result = []
         for i, child in enumerate(child_list):
             child = list(child)
-            random_value = random.randrange(20,31)
+            random_value = random.randrange(26,31)
             if random_value == 30:
                 # print(i)
                 # print('mutation function opertaion!!')
