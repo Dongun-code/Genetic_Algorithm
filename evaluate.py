@@ -31,19 +31,20 @@ class evaluate:
         for i, feature_list in enumerate(pop_list):
             # print('pop',feature_list)
             X = pd.DataFrame(data, columns=feature_list)
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
             Xgrf.fit(X_train, y_train, verbose=1)
-            regressor_result = Xgrf.score(X_test, y_test)
+            # regressor_result = Xgrf.score(X_test, y_test)
+            regressor_result = np.sum(y_test - Xgrf.predict(X_test)) ** 2
             regressor_result_list.append(regressor_result)
 
         regressor_result_original = copy.deepcopy(regressor_result_list)
         regressor_result_list.sort()
         # print('regressor_result_original', np.array(regressor_result_original).shape)
         # print(regressor_result_list)
-        print('top5:',regressor_result_list[-20:])
+        print('top10:',regressor_result_list[:10])
 
         parent_index = []
-        for i in regressor_result_list[-20:]:
+        for i in regressor_result_list[:10]:
             # print(i)
             x = regressor_result_original.index(i)
             parent_index.append(x)
